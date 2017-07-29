@@ -7,6 +7,7 @@ end
 
 def show
   @group = Group.find(params[:id])
+  @posts = @group.posts
 end
 
 def new
@@ -15,7 +16,7 @@ end
 
 def edit
   @group = Group.find(params[:id])
-end 
+end
 
 def create
   @group = Group.new(group_params)
