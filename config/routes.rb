@@ -12,6 +12,7 @@ end
 end
 
 namespace :account do
+  resources :posts
   resources :groups
 end
 
