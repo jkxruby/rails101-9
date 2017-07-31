@@ -12,7 +12,7 @@ def index
 end
 
 def edit
-  @post = Group.find(params[:group_id])
+  @group = Group.find(params[:group_id])
   @post = Post.find(params[:id])
   @post.group = @group
 end
@@ -32,9 +32,9 @@ end
 def update
   @group = Group.find(params[:group_id])
   @post = Post.find(params[:id])
-  @post.group = @group
+
   if @post.update(post_params)
-    redirect_to group_path(@group), notice: "update success~"
+    redirect_to account_posts_path(@group), notice: "update success~"
   else
     render :edit
   end
@@ -45,7 +45,7 @@ def destroy
   @post = Post.find(params[:id])
   @post.group = @group
   @post.destroy
-  redirect_to group_path(@group), alert: "delete!"
+  redirect_to account_path(@group), alert: "delete!"
 end
 
 private
